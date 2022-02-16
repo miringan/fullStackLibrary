@@ -1,0 +1,137 @@
+[
+    {
+        "title":"The Count of Monte Cristo",
+        "author": "Alexandre Dumas",
+        "genre": "Fiction",
+        "checked_in": "true",
+        "new_arrival": "false"
+
+    },
+    {
+        "title":"A Brief History of Time",
+        "author": "Stephen Hawking",
+        "genre": "Non Fiction",
+        "checked_in": "false",
+        "new_arrival": "false"
+    },
+    {
+        "title":"Lord of the Rings: Fellowship of the Rings",
+        "author": "J.R.R. Tolkien",
+        "genre": "Fantasy",
+        "checked_in": "false",
+        "new_arrival": "false"
+    },
+    {
+        "title":"Lord of the Rings: The Two Towers",
+        "author": "J.R.R. Tolkien",
+        "genre": "Fantasy",
+        "checked_in": "true",
+        "new_arrival": "false"
+    },
+    {
+        "title":"Lord of the Rings: Return of the King",
+        "author": "J.R.R. Tolkien",
+        "genre": "Fantasy",
+        "checked_in": "true",
+        "new_arrival": "false"
+    },
+    {
+        "title":"Dune",
+        "author": "Frank Herbert",
+        "genre": "Science Fiction",
+        "checked_in": "false",
+        "new_arrival": "false"
+    },
+    {
+        "title":"Joy of Cooking",
+        "author": "Irma S. Rombauer",
+        "genre": "Cookbook",
+        "checked_in": "true",
+        "new_arrival": "false"
+    },
+    {
+        "title":"Mastering the Art of French Cooking, Vol 1",
+        "author": "Julia Child",
+        "genre": "Cookbook",
+        "checked_in": "false",
+        "new_arrival": "false"
+    },
+    {
+        "title":"The Wizard of Earthsea",
+        "author": "Ursula Le Guin",
+        "genre": "Young Adult",
+        "checked_in": "true",
+        "new_arrival": "false"
+    },
+    {
+        "title":"The Tombs of Atuan",
+        "author": "Ursula Le Guin",
+        "genre": "Young Adult",
+        "checked_in": "false",
+        "new_arrival": "false"
+    },
+    {
+        "title":"Green Eggs and Ham",
+        "author": "Dr. Seuss",
+        "genre": "Children's Books",
+        "checked_in": "false",
+        "new_arrival": "false"
+    },    
+    {
+        "title":"One Fish, Two Fish, Red Fish, Blue Fish",
+        "author": "Dr. Seuss",
+        "genre": "Children's Books",
+        "checked_in": "true",
+        "new_arrival": "false"
+    },
+    {
+        "title":"The Autobiography of Malcolm X",
+        "author": "Alex Haley and Malcolm X",
+        "genre": "Biography",
+        "checked_in": "false",
+        "new_arrival": "false"
+    },
+    {
+        "title":"The Autobiography of Malcolm X",
+        "author": "Alex Haley and Malcolm X",
+        "genre": "Biography",
+        "checked_in": "false",
+        "new_arrival": "false"
+    },
+    {
+        "title":"Parable of the Sower",
+        "author": "Octavia E. Butler",
+        "genre": "Science Fiction",
+        "checked_in": "true",
+        "new_arrival": "false"
+    }, 
+    {
+        "title":"The Fifth Season",
+        "author": "N. K. Jemisin",
+        "genre": "Science Fantasy",
+        "checked_in": "false",
+        "new_arrival": "false"
+    },
+    {
+        "title":"Uprooted",
+        "author": "Naomi Novik",
+        "genre": "Fantasy",
+        "checked_in": "true",
+        "new_arrival": "false"
+    },
+    {
+        "title":"A Darker Shade of Magic",
+        "author": "V.E. Schwab",
+        "genre": "Fantasy",
+        "checked_in": "false",
+        "new_arrival": "false"
+    },
+    {
+        "title":"The Hate U Give",
+        "author": "Angie Thomas",
+        "genre": "Young Adult",
+        "checked_in": "true",
+        "new_arrival": "true"
+    }
+
+]

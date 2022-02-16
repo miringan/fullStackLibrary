@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="WmTgFoUp7qAfaRWp4kkh" name="Homepage">
-        <mxGraphModel dx="466" dy="216" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+        <mxGraphModel dx="664" dy="617" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -55,7 +55,9 @@
         </mxGraphModel>
     </diagram>
     <diagram id="tKnISiqLFTTlk71kXn4B" name="Book Information">
-        <mxGraphModel dx="466" dy="216" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+
+        <mxGraphModel dx="664" dy="617" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+
             <root>
                 <mxCell id="0jnTt7foeNBAJdi-NBAz-0"/>
                 <mxCell id="0jnTt7foeNBAJdi-NBAz-1" parent="0jnTt7foeNBAJdi-NBAz-0"/>
@@ -103,7 +105,8 @@
         </mxGraphModel>
     </diagram>
     <diagram id="WFzQPZniTnoVCTHp5i27" name="Models">
-        <mxGraphModel dx="466" dy="216" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+
+        <mxGraphModel dx="664" dy="617" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
             <root>
                 <mxCell id="gJIMmy8jtHoKGoFDTAei-0"/>
                 <mxCell id="gJIMmy8jtHoKGoFDTAei-1" parent="gJIMmy8jtHoKGoFDTAei-0"/>
@@ -141,7 +144,9 @@
         </mxGraphModel>
     </diagram>
     <diagram id="wwfARPaylD-gr7Zwioe8" name="Donation Page">
-        <mxGraphModel dx="466" dy="216" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+
+        <mxGraphModel dx="664" dy="617" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+
             <root>
                 <mxCell id="yBMcqC7M9m57o5L9N9ml-0"/>
                 <mxCell id="yBMcqC7M9m57o5L9N9ml-1" parent="yBMcqC7M9m57o5L9N9ml-0"/>
