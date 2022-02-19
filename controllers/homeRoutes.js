@@ -29,7 +29,7 @@ router.get('/library', async (req,res) => {
                 ],
         });
         // Serialize data so the template can read it
-        const libraryData = libraryData.map((library) => library.get({ plain: true }));
+        const libraries = libraryData.map((library) => library.get({ plain: true }));
     } catch (err) {
         res.status(500).json(err);
     }
