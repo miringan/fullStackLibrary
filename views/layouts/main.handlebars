@@ -13,6 +13,11 @@
         <li class="nav-item">
           <a class="nav-link active" href="#">Home</a>
         </li>
+            {{#if logged_in}}
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
         <li class="nav-item">
           <a class="nav-link" href="#">Library</a>
         </li>
@@ -45,8 +50,11 @@
         <div class="d-grid gap-2 col-6 w-10">
             <button id="searchBtn" class="btn btn-primary" type="button">Search</button>
         </div>
+        {{{body}}}
     
 </body>
-<script src="./public/js/login.js"></script>
-<script src="./public/js/logout.js"></script>
+<script src="/js/login.js"></script>
+ {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </html>
