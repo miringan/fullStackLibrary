@@ -20,20 +20,17 @@
         {{else}}
         </li>
 
-
          <li class="nav-item"></li>
         <a class= "nav-link" href="/login">Login</a>
         {{/if}}
        </li>
-
-
 
         <li class="nav-item">
           <a class="nav-link" href="#">Library</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Donate</a>
+          <a class="nav-link" href="/donate">Donate</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled">Contact Us</a>
@@ -50,17 +47,14 @@
         
         <div class="container col-3"> 
           <form class="search-form">
-            <p>{{ title }}</p>
             <input type="text" id="search-input" class="form-control" placeholder="Huckelberry Finn">
           </form>
-            <!-- <button id="searchBtn">search</button> -->
+            {{!-- <button id="searchBtn">search</button> --}}
         </div>
         <br>
-    
-        
-        <div class="d-grid gap-2 col-6 w-10">
+<div class="d-grid gap-2 col-6 w-10">
             <button id="searchBtn" class="btn btn-primary" type="button">Search</button>
-        </div>
+        </div> 
         {{{body}}}
     
 </body>
@@ -68,4 +62,7 @@
  {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
+
+
+  <script src ="/js/bookresults.js"></script>
 </html>
