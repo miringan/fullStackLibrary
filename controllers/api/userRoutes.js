@@ -32,6 +32,7 @@ router.post("/", async (req, res) => {
   }
 });
 
+// To update the user table when a person logs in
 router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({

@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
 // GET route for library
 router.get("/", async (req, res) => {
   try {
-    const libraryData = await Project.findAll({
+    const libraryData = await Book.findAll({
       include: [
         {
           model: Book,
