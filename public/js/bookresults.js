@@ -17,7 +17,14 @@ const searchBookTitle = async (event) => {
     if (response.ok) {
        const bookResponse  =  await response.json();
        console.log(bookResponse)
+
+      // for(var i = 0; i < bookResponse.length; i++) {
+      //  document.location.replace("/");
+      // }
     }
   }
+  // function checkBook(lookup) {
+  //   return (lookup === title);
+  // }
 };
 document.querySelector("#searchBtn").addEventListener("click", searchBookTitle);
