@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
 // GET route for library
 router.get("/", async (req, res) => {
   try {
-    const libraryData = await Project.findAll({
+    const libraryData = await Book.findAll({
       include: [
         {
           model: Book,
@@ -67,12 +67,20 @@ router.put("/:title", (req, res) => {
 
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect("/profile");
+    res.redirect("/bookInformation");
     return;
   }
   res.render("login");
 });
 
+router.get("/donate", (req, res) => {
+  // if (req.session.logged_in) {
+  //   res.redirect("/donate");
+  //   return;
+  // }
+  res.render("donate");
+  return
+});
 
 module.exports = router
 
