@@ -47,6 +47,22 @@
       <h2>
         Check out what books are in stock
       </h2>
+      <h3 class=>Search for a book</h3>
+        
+        <div class="container col-3"> 
+          <form class="search-form">
+            <p>{{{ title }}}</p>
+            <input type="text" id="search-input" class="form-control" placeholder="Huckelberry Finn">
+          </form>
+            <!-- <button id="searchBtn">search</button> -->
+        </div>
+        <br>
+    
+        
+        <div class="d-grid gap-2 col-6 w-10">
+            <button id="searchBtn" class="btn btn-primary" type="button">Search</button>
+        </div>
+        {{{ body }}}
 
       <h3 class=>Search for your next book:</h3>
     </div>
@@ -61,7 +77,6 @@
       <button id="searchBtn" class="btn btn-danger" type="button">Search</button>
     </div>
     {{{body}}}
-
 </body>
 <script src="/js/login.js"></script>
 {{#if logged_in}}
