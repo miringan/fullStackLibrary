@@ -5,10 +5,8 @@ const withAuth = require("../utils/auth");
 // GET route for home page
 router.get("/", async (req, res) => {
   try {
-   
     // Pass serialized data and session flag into template
     res.render("homepage", {
-  
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -18,25 +16,25 @@ router.get("/", async (req, res) => {
 
 // Still WIP
 // GET route for library
-router.get("/", async (req, res) => {
-  try {
-    const libraryData = await Book.findAll({
-      include: [
-        {
-          model: Book,
-          // Need to tie in search result from homepage search bar into attributes
-          attributes: ["title"],
-        },
-      ],
-    });
-    // Serialize data so the template can read it
-    const libraries = libraryData.map((library) =>
-      library.get({ plain: true })
-    );
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// router.get("/", async (req, res) => {
+//   try {
+//     const libraryData = await Book.findAll({
+//       include: [
+//         {
+//           model: Book,
+//           // Need to tie in search result from homepage search bar into attributes
+//           attributes: ["title"],
+//         },
+//       ],
+//     });
+//     // Serialize data so the template can read it
+//     const libraries = libraryData.map((library) =>
+//       library.get({ plain: true })
+//     );
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // PUT route to checkout a book from the library
 router.put("/:title", (req, res) => {
@@ -61,8 +59,6 @@ router.put("/:title", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-// POST route to add a book to the library
-
 // POST route to create a user
 
 router.get("/login", (req, res) => {
@@ -79,8 +75,32 @@ router.get("/donate", (req, res) => {
   //   return;
   // }
   res.render("donate");
-  return
+  return;
+});
+// POST route to add a book to the library
+router.post("/donate", async (req, res) => {
+  try {
+    const dbBookData = await Book.create({
+      title: req.body.title,
+      author: req.body.author,
+      genre: req.body.genre,
+      checked_in: true,
+      new_arrival: true,
+    });
+    res.status(200).json(dbBookData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
-module.exports = router
+router.get("/bookInformation", async (req, res) => {
+  try{
+  const users = await userData.map((project) => project.get({ plain: true }));
+  res.render('bookInformation', { users });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
+
+module.exports = router;

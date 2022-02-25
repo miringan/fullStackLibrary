@@ -12,12 +12,29 @@ const searchBookTitle = async (event) => {
       headers: {
         "Content-Type": "application/json",
       },
+    }).then(function(response) {
+         return response.json();
     });
+    // const response = await fetch(`/api/book/?title=${title}`, {
+    //   method: "GET",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // });
 
     if (response.ok) {
        const bookResponse  =  await response.json();
        console.log(bookResponse)
+       document.append(bookResponse);
+
+      // for(var i = 0; i < bookResponse.length; i++) {
+      //  document.location.replace("/");
+      // }
     }
   }
+  // function checkBook(lookup) {
+  //   return (lookup === title);
+  // }
+
 };
 document.querySelector("#searchBtn").addEventListener("click", searchBookTitle);
