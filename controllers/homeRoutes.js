@@ -16,25 +16,25 @@ router.get("/", async (req, res) => {
 
 // Still WIP
 // GET route for library
-router.get("/", async (req, res) => {
-  try {
-    const libraryData = await Book.findAll({
-      include: [
-        {
-          model: Book,
-          // Need to tie in search result from homepage search bar into attributes
-          attributes: ["title"],
-        },
-      ],
-    });
-    // Serialize data so the template can read it
-    const libraries = libraryData.map((library) =>
-      library.get({ plain: true })
-    );
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// router.get("/", async (req, res) => {
+//   try {
+//     const libraryData = await Book.findAll({
+//       include: [
+//         {
+//           model: Book,
+//           // Need to tie in search result from homepage search bar into attributes
+//           attributes: ["title"],
+//         },
+//       ],
+//     });
+//     // Serialize data so the template can read it
+//     const libraries = libraryData.map((library) =>
+//       library.get({ plain: true })
+//     );
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // PUT route to checkout a book from the library
 router.put("/:title", (req, res) => {
@@ -93,7 +93,14 @@ router.post("/donate", async (req, res) => {
   }
 });
 
-router.get("/booksearch", (req, res) => {});
+router.get("/bookInformation", async (req, res) => {
+  try{
+  const users = await userData.map((project) => project.get({ plain: true }));
+  res.render('bookInformation', { users });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 module.exports = router;
