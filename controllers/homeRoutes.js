@@ -5,10 +5,8 @@ const withAuth = require("../utils/auth");
 // GET route for home page
 router.get("/", async (req, res) => {
   try {
-   
     // Pass serialized data and session flag into template
     res.render("homepage", {
-  
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -61,8 +59,6 @@ router.put("/:title", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-// POST route to add a book to the library
-
 // POST route to create a user
 
 router.get("/login", (req, res) => {
@@ -79,8 +75,25 @@ router.get("/donate", (req, res) => {
   //   return;
   // }
   res.render("donate");
-  return
+  return;
+});
+// POST route to add a book to the library
+router.post("/donate", async (req, res) => {
+  try {
+    const dbBookData = await Book.create({
+      title: req.body.title,
+      author: req.body.author,
+      genre: req.body.genre,
+      checked_in: true,
+      new_arrival: true,
+    });
+    res.status(200).json(dbBookData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
-module.exports = router
+router.get("/booksearch", (req, res) => {});
 
+
+module.exports = router;
