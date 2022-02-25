@@ -1,78 +1,78 @@
-const router = require('express').Router();
-const { User } = require('../../models');
+const router = require("express").Router();
+const { User } = require("../../models");
 
 // Get
-router.get('/', async (req, res) => {
-    try {
-const dbUserData = await User.findAll({
-    attributes: ["user_name"],
-    exclude : ["password"],
-})
-res.status(200).json(dbUserData)
-    } catch (err) {
-        res.status(500).json(err)
-    }
-})
+router.get("/", async (req, res) => {
+  try {
+    const dbUserData = await User.findAll({
+      attributes: ["user_name"],
+      exclude: ["password"],
+    });
+    res.status(200).json(dbUserData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // POST route to create a new user.
-router.post('/', async (req, res) => {
-    try {
-        const userData = await User.create(req.body);
-        
-        // Save user responses to a new User object.
-        req.session.save(() => {
-            req.session.user_id = userData.id;
-            req.session.password = userData.password;
-            req.session.logged_in = true;
-  
-            res.status(200).json(userData);
-        });
-    } catch (err) {
-        res.status(400).json(err);
-    }
+router.post("/", async (req, res) => {
+  try {
+    const userData = await User.create(req.body);
+
+    // Save user responses to a new User object.
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.password = userData.password;
+      req.session.logged_in = true;
+
+      res.status(200).json(userData);
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
-  
-router.post('/login', async (req, res) => {
-try {
-    const userData = await User.findOne({ where: { user_name: req.body.username } });
+
+router.post("/login", async (req, res) => {
+  try {
+    const userData = await User.findOne({
+      where: { user_name: req.body.username },
+    });
 
     if (!userData) {
-    res
+      res
         .status(400)
-        .json({ message: 'Incorrect username or password, please try again' });
-    return;
+        .json({ message: "Incorrect username or password, please try again" });
+      return;
     }
 
     const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
-    res
+      res
         .status(400)
-        .json({ message: 'Incorrect username or password, please try again' });
-    return;
+        .json({ message: "Incorrect username or password, please try again" });
+      return;
     }
 
     req.session.save(() => {
-    req.session.user_id = userData.id;
-    req.session.logged_in = true;
-    
-    res.json({ user: userData, message: 'You are now logged in!' });
-    });
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
 
-} catch (err) {
+      res.json({ user: userData, message: "You are now logged in!" });
+    });
+  } catch (err) {
     res.status(400).json(err);
-}
+  }
 });
 
-router.post('/logout', (req, res) => {
-if (req.session.logged_in) {
+router.post("/logout", (req, res) => {
+  if (req.session.logged_in) {
     req.session.destroy(() => {
-    res.status(204).end();
+      res.status(204).end();
     });
-} else {
+  } else {
     res.status(404).end();
-}
+  }
 });
 
 module.exports = router;
-  

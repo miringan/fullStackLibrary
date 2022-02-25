@@ -40,7 +40,21 @@ const withAuth = require("../../utils/auth");
 router.get("/", async (req, res) => {
   try {
     const libraryData = await Book.findAll({
-      attributes: ["title", "author", "genre", "checked_in"],
+      attributes: ["title", "author", "genre", "checked_in", "new_arrival"],
+      where : {
+        title : req.query.title
+      }
+    });
+    res.status(200).json(libraryData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/:title", async (req, res) => {
+  try {
+    const libraryData = await Book.findOne({
+      attributes: ["title", "author", "genre", "checked_in", "new_arrival"],
       // include: [{
       //   model: User,
       //   attributes: ["user_name"]
@@ -52,18 +66,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
-  try {
-    const libraryData = await Book.findOne({
-      where: {
-        id: req.params.id,
-      },
-    });
-    res.status(200).json(libraryData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+
 
 // PUT route to checkout a book from the library
 router.put("/:title", (req, res) => {
