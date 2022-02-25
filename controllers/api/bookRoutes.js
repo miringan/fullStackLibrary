@@ -39,6 +39,17 @@ const withAuth = require("../../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
+    const bookData = await Book.findAll({
+      });
+    res.status(200).json(bookData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Search for books by title 
+router.get("/", async (req, res) => {
+  try {
     const libraryData = await Book.findAll({
       attributes: ["title", "author", "genre", "checked_in", "new_arrival"],
       where : {
@@ -51,7 +62,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:title", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const libraryData = await Book.findOne({
       attributes: ["title", "author", "genre", "checked_in", "new_arrival"],
