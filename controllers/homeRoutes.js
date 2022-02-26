@@ -74,7 +74,7 @@ router.put("/:title", (req, res) => {
 
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect("/bookInformation");
+    res.redirect("/homepage");
     return;
   }
   res.render("login");
@@ -104,18 +104,45 @@ router.post("/donate", async (req, res) => {
   }
 });
 
-router.get("/bookInformation", async (req, res) => {
-  try {
-    const book = await JSON.parse(localStorage.getItem("bookSearch"));
-    // if (!book) {
-    //   return (book = {});
-    // }
 
-    // const book = await userData.map((project) => project.get({ plain: true }));
-    res.render("bookInformation", { book });
+router.get("/bookInfo", async (req, res) => {
+  try {
+    const libraryData = await Book.findAll({
+      attributes: ["title", "author", "genre", "checked_in", "new_arrival"],
+      where: {
+        title: req.query.title,
+      },
+    
+    });
+    
+    // Serialize user data so templates can read it
+    //const books = libraryData.map((book) => book.get({ plain: true }));
+
+  res.render("bookInfo", { books });
   } catch (err) {
-    res.status(500).json(err);
-  }
+  res.status(500).json(err);
+}
 });
 
-module.exports = router;
+
+router.get("/contact", (req, res) => {
+  res.render('contact');
+}
+)
+// router.get("/bookInfo", (req, res) => {
+  //   res.render('bookInfo');
+  //   }
+  // )
+  
+  module.exports = router;
+  
+  // console.log(libraryData)
+  
+  // const book = await userData.map((project) => project.get({ plain: true }));
+  // const dummyData = {
+  //   title: "title",
+  //   author: "author",
+  //   genre: "genre",
+  //   checked_in: "checked-in",
+  //   new_arrival: 'new-arrival'
+  // }
