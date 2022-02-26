@@ -14,6 +14,17 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get("/", async (req, res) => {
+  try {
+    const bookData = await Book.findAll({});
+
+    const books = bookData.map((book) => book.get({ plain: true }));
+    res.render("library", { books });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 // Still WIP
 // GET route for library
 // router.get("/", async (req, res) => {
@@ -94,13 +105,19 @@ router.post("/donate", async (req, res) => {
 });
 
 router.get("/bookInformation", async (req, res) => {
-  try{
-  const users = await userData.map((project) => project.get({ plain: true }));
-  res.render('bookInformation', { users });
+  try {
+    const book = await JSON.parse(localStorage.getItem("bookSearch"));
+    // if (!book) {
+    //   return (book = {});
+    // }
+
+    // const book = await userData.map((project) => project.get({ plain: true }));
+    res.render("bookInformation", { book });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
 
 router.get("/contact", (req, res) => {
   res.render('contact');
