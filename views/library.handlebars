@@ -1,4 +1,19 @@
+{{#each books as |book|}}
+ 
+<div>
+    <h2> These books are available for checkout:</h2>
+<h4> {{title}}</h4>
+<p>{{author}}</p>
+<p>{{genre}}</p>
 
+{{#if checked_id}}
+<a>Reserve this book!</a>
+{{/if}}
 
+{{#if new_arrival}}
+<p> New Arrival</p>
+{{/if}}
+</div>
 
+ {{/each}}
 
