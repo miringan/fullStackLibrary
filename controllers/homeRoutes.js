@@ -127,6 +127,7 @@ router.get("/bookInfo", async (req, res) => {
 
 router.get("/contact", (req, res) => {
   res.render('contact');
+
 }
 )
 // router.get("/bookInfo", (req, res) => {
@@ -134,7 +135,7 @@ router.get("/contact", (req, res) => {
   //   }
   // )
   
-  module.exports = router;
+  
   
   // console.log(libraryData)
   
@@ -146,3 +147,8 @@ router.get("/contact", (req, res) => {
   //   checked_in: "checked-in",
   //   new_arrival: 'new-arrival'
   // }
+=======
+  }
+)
+
+module.exports = router;
