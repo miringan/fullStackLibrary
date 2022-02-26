@@ -5,17 +5,16 @@
         </h2 <h3 class=>Search for your next book:</h3>
     </div>
     <div class="col-3">
-        <form class="search-form">
-            <input type="text" id="search-input" class="form-control" placeholder="Huckelberry Finn">
+        <form class="search-form" action="/bookInfo">
+            <input type="text" id="search-input" name="title" class="form-control" placeholder="Huckelberry Finn">
 
             {{!-- <button id="searchBtn">search</button> --}}
 
             <br>
             {{!-- <div class="d-grid gap-2 col-6 w-10"> --}}
-                <button id="searchBtn" class="btn btn-danger" type="button"
-                    onclick="window.location.href='/bookInformation'">Search</button>
+                <button id="searchBtn" class="btn btn-danger" type="submit">Search</button>
 
         </form>
-        <script src="/js/homepage.js"></script>
     </div>
+        <script src="/js/homepage.js"></script>
 </div>
