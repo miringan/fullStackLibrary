@@ -147,8 +147,7 @@ router.get("/contact", (req, res) => {
   //   checked_in: "checked-in",
   //   new_arrival: 'new-arrival'
   // }
-=======
-  }
-)
+//   }
+// )
 
 module.exports = router;
