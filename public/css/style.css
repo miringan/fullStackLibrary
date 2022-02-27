@@ -40,5 +40,27 @@ label {
   width: 800px;
 }
 
+.library {
+  padding: 1%;
+}
+
+.books {
+  border: 3px  rgb(73, 70, 70) solid;
+ padding: 0.75%
+}
+
+.contactUs {
+  background-color: rgb(250, 245, 240);
+  padding: 1%;
+  }
+
+ .contact {
+font-size: 24px;
+/* background-color: azure; */
+ } 
+
+ .contactInfo{
+   color: rgb(182, 7, 7);
+ }
 
 
