@@ -1,19 +1,21 @@
+<div class = "library">  
+    
+<h2> These books are available for checkout:</h2>
 {{#each books as |book|}}
  
+<div class ="books">
+<h4> {{book.title}}</h4>
+<h5>{{book.author}}</h5>
+<p>{{book.genre}}</p>
 <div>
-    <h2> These books are available for checkout:</h2>
-<h4> {{title}}</h4>
-<p>{{author}}</p>
-<p>{{genre}}</p>
-
-{{#if checked_id}}
-<a>Reserve this book!</a>
-{{/if}}
-
-{{#if new_arrival}}
-<p> New Arrival</p>
+{{#if book.checked_in}}
+<a href="/login"><button class="btn btn-primary"> Reserve this book!</button> </a>
 {{/if}}
 </div>
-
+{{#if book.new_arrival}}
+<p> New Arrival!</p>
+{{/if}}
+</div>
  {{/each}}
+</div>  
 

@@ -14,16 +14,17 @@ const searchBookTitle = async (event) => {
     });
     console.log(response);
 
-    if (response.ok) {
-      localStorage.setItem("bookSearch", JSON.stringify(response));
-      document.location.replace("/bookInfo");
-    } else {
-      alert("Failure");
-      document.location.replace("/homepage");
-    }
-    const bookResponse = await response.json();
-    console.log(bookResponse);
-
+    // if (response.ok) {
+    //   localStorage.setItem("bookSearch", JSON.stringify(response));
+    //   document.location.replace("/bookInfo");
+    // } else {
+    //   alert("Failure");
+    //   document.location.replace("/homepage");
+    // }
+    // const bookResponse = await response.json();
+    // console.log(bookResponse);
+    // }
+    
   }
 };
 

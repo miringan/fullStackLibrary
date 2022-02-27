@@ -2,53 +2,18 @@ const router = require("express").Router();
 const { Book, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-// router.post("/", async (req, res) => {
-//   try {
-//     const newBook = await Book.create({
-//       ...req.body,
-//       user_id: req.session.user_id,
-//     });
-
-//     res.status(200).json(newBook);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
-
-// // Still WIP
-// // GET route for library search results
 // router.get("/", async (req, res) => {
 //   try {
-//     const libraryData = await Book.findAll({
-//       include: [
-//         {
-//           model: Book,
-//           // Need to tie in search result from homepage search bar into attributes
-//           attributes: ["title"],
-//         },
-//       ],
-//     });
-//     // Serialize data so the template can read it
-//     const libraries = libraryData.map((library) =>
-//       library.get({ plain: true })
-//     );
+//     const bookData = await Book.findAll({});
+//     res.status(200).json(bookData);
 //   } catch (err) {
 //     res.status(500).json(err);
 //   }
 // });
 
-router.get("/", async (req, res) => {
-  try {
-    const bookData = await Book.findAll({});
-    res.status(200).json(bookData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 // Search for books by title
 router.get("/", async (req, res) => {
-  console.log(title)
+  console.log(title);
   try {
     const libraryData = await Book.findAll({
       attributes: ["title", "author", "genre", "checked_in", "new_arrival"],
@@ -56,7 +21,7 @@ router.get("/", async (req, res) => {
         title: req.query.title,
       },
     });
-    console.log(libraryData)
+    console.log(libraryData);
     localStorage.setItem("bookSearch", JSON.stringify(libraryData));
 
     res.status(200).json(libraryData);
@@ -65,39 +30,34 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
-  try {
-    const libraryData = await Book.findOne({
-      attributes: ["title", "author", "genre", "checked_in", "new_arrival"],
-      // include: [{
-      //   model: User,
-      //   attributes: ["user_name"]
-      // }]
-    });
-    res.status(200).json(libraryData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// router.get("/:id", async (req, res) => {
+//   try {
+//     const libraryData = await Book.findOne({
+//       attributes: ["title", "author", "genre", "checked_in", "new_arrival"],
+// include: [{
+//   model: User,
+//   attributes: ["user_name"]
+// }]
+//     });
+//     res.status(200).json(libraryData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 // PUT route to checkout a book from the library
 router.put("/:title", (req, res) => {
-  // Calls the update method on the Book model
   Book.update(
     {
-      // All the fields you can update and the data attached to the request body.
       checked_in: false,
     },
     {
-      // Gets the books based on the title given in the request parameters
       where: {
-        // Need to link search result to req
         title: req.params.title,
       },
     }
   )
     .then((updatedBook) => {
-      // Sends the updated book as a json response
       res.json(updatedBook);
     })
     .catch((err) => res.json(err));
