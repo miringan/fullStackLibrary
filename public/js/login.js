@@ -28,7 +28,7 @@ const loginFormHandler = async (event) => {
   
     if (user_name && password) {
       console.log(user_name, password)
-      const response = await fetch('/api/user', {
+      const response = await fetch('/api/user/login', {
         method: 'POST',
         body: JSON.stringify({ user_name, password }),
         headers: { 'Content-Type': 'application/json' },

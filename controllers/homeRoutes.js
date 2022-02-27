@@ -108,6 +108,7 @@ router.get("/bookInfo", async (req, res) => {
   try {
     const bookData = await Book.findAll({
       attributes: ["title", "author", "genre", "checked_in", "new_arrival"],
+
       where: {
         title: req.query.title,
       },
