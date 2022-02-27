@@ -1,5 +1,6 @@
 const searchBookTitle = async (event) => {
   event.preventDefault();
+
   const title = document.getElementById("search-input").value.trim();
   console.log("title ", title);
 
@@ -13,7 +14,19 @@ const searchBookTitle = async (event) => {
       },
     });
     console.log(response);
-
+    function renderBookData() {
+      let searchResults = document.getElementById("searchResults").innerHTML;
+      let context = {
+        title: `${response.title}`,
+        author: `${response.author}`,
+        genre: `${response.genre}`,
+        checked_in: `${response.checked_in}`,
+        new_arrival: `${response.new_arrival}`,
+      };
+      let templateScript = Handlebars.compile(template);
+      let html = templateScript(context);
+      document.body.append(html);
+    }
     // if (response.ok) {
     //   localStorage.setItem("bookSearch", JSON.stringify(response));
     //   document.location.replace("/bookInfo");
@@ -24,15 +37,8 @@ const searchBookTitle = async (event) => {
     // const bookResponse = await response.json();
     // console.log(bookResponse);
     // }
-    
   }
 };
-
-// function getDataApi() {
-//   let searchResults = document.getElementById("searchResults").innerHTML = 
-// };
-
-
 // var context = { "title" : "", "author" : "", "genre": "", "checked-in": "", "new-arrival": ""};
 
 // //Compile the template data into a function

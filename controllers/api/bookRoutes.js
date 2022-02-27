@@ -2,14 +2,14 @@ const router = require("express").Router();
 const { Book, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-// router.get("/", async (req, res) => {
-//   try {
-//     const bookData = await Book.findAll({});
-//     res.status(200).json(bookData);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+router.get("/", async (req, res) => {
+  try {
+    const bookData = await Book.findAll({});
+    res.status(200).json(bookData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // Search for books by title
 router.get("/", async (req, res) => {
@@ -22,10 +22,12 @@ router.get("/", async (req, res) => {
       },
     });
     console.log(libraryData);
-    localStorage.setItem("bookSearch", JSON.stringify(libraryData));
+    // localStorage.setItem("bookSearch", JSON.stringify(libraryData));
+    // const book = libraryData.get({ plain: true });
 
     res.status(200).json(libraryData);
-  } catch (err) {
+  }
+   catch (err) {
     res.status(500).json(err);
   }
 });
