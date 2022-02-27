@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
 
 // Search for books by title
 router.get("/", async (req, res) => {
-  console.log(title);
+  console.log("bookRoutes",title);
   try {
     const libraryData = await Book.findAll({
       attributes: ["title", "author", "genre", "checked_in", "new_arrival"],
@@ -27,7 +27,9 @@ router.get("/", async (req, res) => {
 
     res.status(200).json(libraryData);
   }
+  
    catch (err) {
+     console.log("hello Tony!")
     res.status(500).json(err);
   }
 });
