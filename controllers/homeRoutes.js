@@ -48,33 +48,33 @@ router.get("/library", async (req, res) => {
 // });
 
 // PUT route to checkout a book from the library
-router.put("/:title", (req, res) => {
-  // Calls the update method on the Book model
-  Book.update(
-    {
-      // All the fields you can update and the data attached to the request body.
-      checked_in: false,
-    },
-    {
-      // Gets the books based on the title given in the request parameters
-      where: {
-        // Need to link search result to req
-        title: req.params.title,
-      },
-    }
-  )
-    .then((updatedBook) => {
-      // Sends the updated book as a json response
-      res.json(updatedBook);
-    })
-    .catch((err) => res.json(err));
-});
+// router.put("/library", (req, res) => {
+//   // Calls the update method on the Book model
+//   Book.update(
+//     {
+//       // All the fields you can update and the data attached to the request body.
+//       checked_in: true,
+//     },
+//     {
+//       // Gets the books based on the title given in the request parameters
+//       where: {
+//         // Need to link search result to req
+//         id: req.params.id,
+//       },
+//     }
+//   )
+//     .then((updatedBook) => {
+//       // Sends the updated book as a json response
+//       res.json(updatedBook);
+//     })
+//     .catch((err) => res.json(err));
+// });
 
 // POST route to create a user
 
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect("/homepage");
+    res.redirect("/");
     return;
   }
   res.render("login");
@@ -82,11 +82,11 @@ router.get("/login", (req, res) => {
 
 router.get("/donate", (req, res) => {
   // if (req.session.logged_in) {
-  //   res.redirect("/donate");
-  //   return;
-  // }
-  res.render("donate");
-  return;
+    res.render("donate");
+    // return;
+  // }else
+  // {res.render("login");
+  // return;}
 });
 // POST route to add a book to the library
 router.post("/donate", async (req, res) => {

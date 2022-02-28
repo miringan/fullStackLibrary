@@ -4,18 +4,19 @@
 {{#each books as |book|}}
  
 <div class ="books">
-<h4> {{book.title}}</h4>
-<h5>{{book.author}}</h5>
-<p>{{book.genre}}</p>
+<h4 id = "bookTitle"> {{book.title}}</h4>
+<h5 id = "bookAuthor">{{book.author}}</h5>
+<p id = "bookGenre">{{book.genre}}</p>
 <div>
 {{#if book.checked_in}}
-<a href="/login"><button class="btn btn-primary"> Reserve this book!</button> </a>
+<a id="checkedIn"><button  id = "reserveBtn" class="btn btn-primary"> Reserve this book!</button> </a>
 {{/if}}
 </div>
 {{#if book.new_arrival}}
-<p> New Arrival!</p>
+<p id ="newArrival"> New Arrival!</p>
 {{/if}}
 </div>
  {{/each}}
+ <script src="/js/library.js"></script>
 </div>  
 

@@ -50,14 +50,14 @@ router.get("/", async (req, res) => {
 // });
 
 // PUT route to checkout a book from the library
-router.put("/:title", (req, res) => {
+router.put("/:id", (req, res) => {
   Book.update(
     {
       checked_in: false,
     },
     {
       where: {
-        title: req.params.title,
+        id: req.params.id,
       },
     }
   )
