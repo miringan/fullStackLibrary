@@ -10,7 +10,7 @@ Active Link: https://full-stack-library-2.herokuapp.com/
 ## Description
 
 A database to track inventories of books in free little libraries that is built on an MVC model to connect a SQL database that contains book and user objects with a front end aesthetic web page that users can navigate through.
-![screenshot](screenshot.png?raw=true "Screenshot")
+![screenshot](/public/images/screenshot.png?raw=true "Screenshot")
 
 ## Table of Contents
 
