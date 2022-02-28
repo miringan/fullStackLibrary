@@ -4,12 +4,19 @@
 {{#each books as |book|}}
  
 <div class ="books">
-<h4 id = "bookTitle"> {{book.title}}</h4>
+    <div id="book-id"= {{book.id}}></div>
+<h4  id = "bookTitle"> {{book.title}}</h4>
 <h5 id = "bookAuthor">{{book.author}}</h5>
 <p id = "bookGenre">{{book.genre}}</p>
 <div>
 {{#if book.checked_in}}
-<a id="checkedIn"><button  id = "reserveBtn" class="btn btn-primary"> Reserve this book!</button> </a>
+<input type="checkbox" id="checked_in" name="checked_in" value="true" />
+    <label for="checked_id">
+      Check this box if you would like to reserve this book.
+    </label>
+    <br/>
+
+<a id="checked_in"><button name="checked_in"  id = "reserveBtn" class="btn btn-primary"> Reserve this book!</button> </a>
 {{/if}}
 </div>
 {{#if book.new_arrival}}
@@ -17,6 +24,9 @@
 {{/if}}
 </div>
  {{/each}}
+ </div>  
  <script src="/js/library.js"></script>
-</div>  
+</div>
+
+
 
