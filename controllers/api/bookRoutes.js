@@ -34,30 +34,16 @@ router.get("/", async (req, res) => {
   }
 });
 
-// router.get("/:id", async (req, res) => {
-//   try {
-//     const libraryData = await Book.findOne({
-//       attributes: ["title", "author", "genre", "checked_in", "new_arrival"],
-// include: [{
-//   model: User,
-//   attributes: ["user_name"]
-// }]
-//     });
-//     res.status(200).json(libraryData);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 // PUT route to checkout a book from the library
-router.put("/:title", (req, res) => {
+router.put("/:id", (req, res) => {
   Book.update(
     {
       checked_in: false,
     },
     {
       where: {
-        title: req.params.title,
+        id: req.params.id,
       },
     }
   )
@@ -67,6 +53,23 @@ router.put("/:title", (req, res) => {
     .catch((err) => res.json(err));
 });
 
+// return a book someday
+// router.put("/:id", (req, res) => {
+//   Book.update(
+//     {
+//       checked_in: true,
+//     },
+//     {
+//       where: {
+//         id: req.params.id,
+//       },
+//     }
+//   )
+//     .then((updatedBook) => {
+//       res.json(updatedBook);
+//     })
+//     .catch((err) => res.json(err));
+// });
 // POST route to donate a book to the library
 router.post("/", async (req, res) => {
   try {
