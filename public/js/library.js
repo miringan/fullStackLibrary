@@ -3,6 +3,7 @@ async function reserveBook(event) {
 
   const id = document.getElementById("book-id").value;
 
+
   // Attempted PUT request to update the status of the checked_in varible 
   const checked_in = document.querySelector("#checked_in:checked")
     ? true
@@ -24,3 +25,4 @@ async function reserveBook(event) {
 }
 
 document.querySelector("#reserveBtn").addEventListener("click", reserveBook);
+

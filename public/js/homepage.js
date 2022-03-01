@@ -3,7 +3,7 @@ const searchBookTitle = async (event) => {
 
   const title = document.getElementById("search-input").value.trim();
   console.log("title", title);
-  
+
   // Searching for a book by title and checking length requirments
   if (title.length === 0) {
     alert("Please type a book title");
