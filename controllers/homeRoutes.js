@@ -14,6 +14,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Gets all the books for the library page
 router.get("/library", async (req, res) => {
   try {
     const bookData = await Book.findAll({});
@@ -70,8 +71,8 @@ router.put("/library", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-// POST route to create a user
 
+// POST route to create a user
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
     res.redirect("/");
@@ -80,6 +81,7 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+// If user is logged in, they can donate a book
 router.get("/donate", (req, res) => {
   // if (req.session.logged_in) {
     res.render("donate");
@@ -88,6 +90,7 @@ router.get("/donate", (req, res) => {
   // {res.render("login");
   // return;}
 });
+
 // POST route to add a book to the library
 router.post("/donate", async (req, res) => {
   try {
@@ -104,6 +107,10 @@ router.post("/donate", async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
+//Search for a book by title 
+=======
+>>>>>>> 282fed43d6f5c248a8ff5c86208ad697dc8a0337
 router.get("/book/:title", async (req, res) => {
   try {
     const bookData = await Book.findAll({
@@ -124,6 +131,32 @@ router.get("/book/:title", async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
+// Search for book by ID
+// router.get("/book/:id", async (req, res) => {
+//   try {
+//     const bookData = await Book.findByPk(req.params.id, {
+//       attributes: ["title", "author", "genre", "checked_in", "new_arrival"],
+
+//       where: {
+//         id: req.params.id,
+//       },
+    
+//     });
+
+//     const book = bookData.get({ plain: true });
+//     res.render("/library", {
+//       ...book,
+//       // logged_in: req.session.logged_in,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+
+// Route to the contact page 
+=======
 router.get("/book/:id", async (req, res) => {
   try {
     const bookData = await Book.findByPk(req.params.id, {
@@ -147,6 +180,7 @@ router.get("/book/:id", async (req, res) => {
 
 
 
+>>>>>>> 282fed43d6f5c248a8ff5c86208ad697dc8a0337
 router.get("/contact", (req, res) => {
   res.render("contact");
 });

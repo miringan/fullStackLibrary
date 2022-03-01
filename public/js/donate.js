@@ -8,6 +8,7 @@ const donateBook = async (event) => {
   const genre = document.getElementById("donate-genre").value.trim();
   console.log("Donated:", title, author, genre);
 
+  // Form for donation
   if (title && author && genre) {
     const response = await fetch("/api/book", {
       method: "POST",

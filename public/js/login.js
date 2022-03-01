@@ -4,6 +4,7 @@ const loginFormHandler = async (event) => {
     const user_name = document.querySelector('#user-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
   
+    // Login form
     if (user_name && password) {
       console.log(user_name, password)
       const response = await fetch('/api/user/login', {
@@ -20,6 +21,8 @@ const loginFormHandler = async (event) => {
     }
   };
   
+  //Sign up form for the website,
+  //  Enter credentials 
   const signupFormHandler = async (event) => {
     event.preventDefault();
   
