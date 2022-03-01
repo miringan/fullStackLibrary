@@ -8,32 +8,31 @@ const searchBookTitle = async (event) => {
   if (title.length === 0) {
     alert("Please type a book title");
   } else {
-    const response = await fetch(
-      `/api/book/?title=${title}`,
-      {
-        method: "GET",
-        
-      })
-    }
-  };
-    //    if (response.ok) {
-    //       localStorage.setItem("bookSearch", JSON.stringify(response));
-    //       document.location.replace("/bookInfo");
-    //     } else {
-    //       alert("Failure");
-    //       document.location.replace("/homepage");
-    //     }
+    const response = await fetch(`/api/book/?title=${title}`, {
+      method: "GET",
+    });
+  }
+};
+if (response.ok) {
+  const data = await response.json();
+  console.log(data);
+  
+  // localStorage.setItem("bookSearch", JSON.stringify(response));
+  // document.location.replace("/homepage");
+} else {
+  alert("Failure");
+  document.location.replace("/homepage");
+}
 
+// .then(libraryData => libraryData.json())
+// .then(libraryData => console.log(libraryData))
+// .catch(err => console.error(err));
+//   .then(response => {
+//     const data = response.json(data);
+//     console.log(data);
+//   }
+// );
 
-      // .then(libraryData => libraryData.json())
-      // .then(libraryData => console.log(libraryData))
-      // .catch(err => console.error(err));
-    //   .then(response => {
-    //     const data = response.json(data);
-    //     console.log(data);
-    //   }
-    // );
- 
 // function renderBookData() {
 //   let searchResults = document.getElementById("searchResults").innerHTML;
 //   let context = {
