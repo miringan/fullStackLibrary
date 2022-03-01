@@ -1,21 +1,29 @@
-<div class = "library">  
-    
-<h2> These books are available for checkout:</h2>
-{{#each books as |book|}}
- 
-<div class ="books">
-<h4> {{book.title}}</h4>
-<h5>{{book.author}}</h5>
-<p>{{book.genre}}</p>
-<div>
-{{#if book.checked_in}}
-<a href="/login"><button class="btn btn-primary"> Reserve this book!</button> </a>
-{{/if}}
-</div>
-{{#if book.new_arrival}}
-<p> New Arrival!</p>
-{{/if}}
-</div>
- {{/each}}
-</div>  
+<div class="library">
 
+  <h2> These books are available for checkout:</h2>
+  {{#each books as |book|}}
+
+  <div class="books">
+    <div id="book-id"={{book.id}}></div>
+    <h4 id="bookTitle"> {{book.title}}</h4>
+    <h5 id="bookAuthor">{{book.author}}</h5>
+    <p id="bookGenre">{{book.genre}}</p>
+    <div>
+      {{#if book.checked_in}}
+      <input type="checkbox" id="checked_in" name="checked_in" value="true" />
+      <label for="checked_id">
+        Check this box if you would like to reserve this book.
+      </label>
+      <br />
+
+      <a><button id="reserveBtn" class="btn btn-primary"> Reserve this book!</button> </a>
+      {{/if}}
+    </div>
+    {{#if book.new_arrival}}
+    <p id="newArrival"> New Arrival!</p>
+    {{/if}}
+  </div>
+  {{/each}}
+</div>
+<script src="/js/library.js"></script>
+</div>
