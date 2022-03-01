@@ -122,7 +122,7 @@ router.get("/book/:title", async (req, res) => {
     const books = bookData.get({ plain: true });
     // const books = bookData.map((book) => book.get({plain : true}))
 
-    res.render("bookInfo", { books });
+    res.render("homepage", { books });
   } catch (err) {
     res.status(500).json(err);
   }
