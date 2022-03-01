@@ -1,19 +1,6 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
-// Get
-// router.get("/", async (req, res) => {
-//   try {
-//     const dbUserData = await User.findAll({
-//       attributes: ["user_name"],
-//       exclude: ["password"],
-//     });
-//     res.status(200).json(dbUserData);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
 // POST route to create a new user.
 router.post("/login", async (req, res) => {
   try {
@@ -32,12 +19,14 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// Login for already created users
 router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({
       where: { user_name: req.body.username },
     });
 
+    // Checks is user information is correct
     if (!userData) {
       res
         .status(400)
@@ -47,6 +36,7 @@ router.post("/login", async (req, res) => {
 
     const validPassword = await userData.checkPassword(req.body.password);
 
+    // Checks is users password is correct
     if (!validPassword) {
       res
         .status(400)
@@ -65,6 +55,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
+//User Logout
 router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

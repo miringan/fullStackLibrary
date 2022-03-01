@@ -13,6 +13,9 @@
 
 <body>
   <div id="bg-pic">
+    <header>
+      <div id="date"></div>
+    </header>
     <ul class="nav justify-content-center">
       <li class="nav-item">
         <a class="nav-link active" href="/">Home</a>
@@ -46,6 +49,8 @@
     </h1>
     {{{body}}}
 
+  <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+  <script src="/js/day.js">dayjs().format()</script>
 </body>
 {{!--
 <script src="/js/login.js"></script> --}}
