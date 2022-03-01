@@ -11,9 +11,7 @@ const searchBookTitle = async (event) => {
       `/api/book/?title=${title}`,
       {
         method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        
       })
     }
   };
