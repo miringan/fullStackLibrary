@@ -3,6 +3,10 @@ async function reserveBook(event) {
 
   const id = document.getElementById("book-id").value;
 
+<<<<<<< HEAD
+  // Attempted PUT request to update the status of the checked_in varible 
+=======
+>>>>>>> 282fed43d6f5c248a8ff5c86208ad697dc8a0337
   const checked_in = document.querySelector("#checked_in:checked")
     ? true
     : false;
@@ -22,4 +26,8 @@ async function reserveBook(event) {
   }
 }
 
+<<<<<<< HEAD
 document.querySelector("#reserveBtn").addEventListener("click", reserveBook);
+=======
+document.querySelector("#reserveBtn").addEventListener("click", reserveBook);
+>>>>>>> 282fed43d6f5c248a8ff5c86208ad697dc8a0337

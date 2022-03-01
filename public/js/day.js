@@ -5,4 +5,21 @@ const date = dayjs();
 const dateElement = document.querySelector('#date');
 
 // Dynamically update HTML with date and time
+<<<<<<< HEAD
 dateElement.innerHTML = date;
+
+
+
+// Trying to use MomentJs for live clock
+// var today = $("#currentDay")
+// var now = moment().format("dddd, MMM Do YYYY [at] h:mm:ss a");
+// $('#currentDay').text(now);
+
+// // Live clock telling date & time
+// setInterval(function () {
+//     var now = moment().format("dddd, MMM Do YYYY [at] h:mm:ss a");
+//     $('#currentDay').text(now);
+// }, 1000);
+=======
+dateElement.innerHTML = date;
+>>>>>>> 282fed43d6f5c248a8ff5c86208ad697dc8a0337

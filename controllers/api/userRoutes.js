@@ -19,12 +19,14 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// Login for already created users
 router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({
       where: { user_name: req.body.username },
     });
 
+    // Checks is user information is correct
     if (!userData) {
       res
         .status(400)
@@ -34,6 +36,7 @@ router.post("/login", async (req, res) => {
 
     const validPassword = await userData.checkPassword(req.body.password);
 
+    // Checks is users password is correct
     if (!validPassword) {
       res
         .status(400)
@@ -52,6 +55,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
+//User Logout
 router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
