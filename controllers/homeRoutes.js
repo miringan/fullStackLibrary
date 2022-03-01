@@ -14,6 +14,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Gets all the books for the library page
 router.get("/library", async (req, res) => {
   try {
     const bookData = await Book.findAll({});
@@ -48,7 +49,7 @@ router.get("/library", async (req, res) => {
 // });
 
 // PUT route to checkout a book from the library
-router.put("/:title", (req, res) => {
+router.put("/library", (req, res) => {
   // Calls the update method on the Book model
   Book.update(
     {
@@ -59,7 +60,7 @@ router.put("/:title", (req, res) => {
       // Gets the books based on the title given in the request parameters
       where: {
         // Need to link search result to req
-        title: req.params.title,
+        id: req.params.id,
       },
     }
   )
@@ -70,24 +71,26 @@ router.put("/:title", (req, res) => {
     .catch((err) => res.json(err));
 });
 
-// POST route to create a user
 
+// POST route to create a user
 router.get("/login", (req, res) => {
   if (req.session.logged_in) {
-    res.redirect("/homepage");
+    res.redirect("/");
     return;
   }
   res.render("login");
 });
 
+// If user is logged in, they can donate a book
 router.get("/donate", (req, res) => {
   // if (req.session.logged_in) {
-  //   res.redirect("/donate");
-  //   return;
-  // }
-  res.render("donate");
-  return;
+    res.render("donate");
+    // return;
+  // }else
+  // {res.render("login");
+  // return;}
 });
+
 // POST route to add a book to the library
 router.post("/donate", async (req, res) => {
   try {
@@ -104,7 +107,8 @@ router.post("/donate", async (req, res) => {
   }
 });
 
-router.get("/bookInfo", async (req, res) => {
+//Search for a book by title 
+router.get("/book/:title", async (req, res) => {
   try {
     const bookData = await Book.findAll({
       attributes: ["title", "author", "genre", "checked_in", "new_arrival"],
@@ -124,22 +128,33 @@ router.get("/bookInfo", async (req, res) => {
   }
 });
 
+// Search for book by ID
+// router.get("/book/:id", async (req, res) => {
+//   try {
+//     const bookData = await Book.findByPk(req.params.id, {
+//       attributes: ["title", "author", "genre", "checked_in", "new_arrival"],
+
+//       where: {
+//         id: req.params.id,
+//       },
+    
+//     });
+
+//     const book = bookData.get({ plain: true });
+//     res.render("/library", {
+//       ...book,
+//       // logged_in: req.session.logged_in,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+
+// Route to the contact page 
 router.get("/contact", (req, res) => {
   res.render("contact");
 });
-// router.get("/bookInfo", (req, res) => {
-//   res.render('bookInfo');
-//   }
-// )
 
-// console.log(libraryData)
-
-// const dummyData = {
-//   title: "title",
-//   author: "author",
-//   genre: "genre",
-//   checked_in: "checked-in",
-//   new_arrival: 'new-arrival'
-// }
 
 module.exports = router;
