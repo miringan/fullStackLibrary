@@ -5,6 +5,7 @@ const date = dayjs();
 const dateElement = document.querySelector('#date');
 
 // Dynamically update HTML with date and time
+<<<<<<< HEAD
 dateElement.innerHTML = date;
 
 
@@ -19,3 +20,6 @@ dateElement.innerHTML = date;
 //     var now = moment().format("dddd, MMM Do YYYY [at] h:mm:ss a");
 //     $('#currentDay').text(now);
 // }, 1000);
+=======
+dateElement.innerHTML = date;
+>>>>>>> 282fed43d6f5c248a8ff5c86208ad697dc8a0337

@@ -107,7 +107,10 @@ router.post("/donate", async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 //Search for a book by title 
+=======
+>>>>>>> 282fed43d6f5c248a8ff5c86208ad697dc8a0337
 router.get("/book/:title", async (req, res) => {
   try {
     const bookData = await Book.findAll({
@@ -128,6 +131,7 @@ router.get("/book/:title", async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 // Search for book by ID
 // router.get("/book/:id", async (req, res) => {
 //   try {
@@ -152,6 +156,31 @@ router.get("/book/:title", async (req, res) => {
 
 
 // Route to the contact page 
+=======
+router.get("/book/:id", async (req, res) => {
+  try {
+    const bookData = await Book.findByPk(req.params.id, {
+      attributes: ["title", "author", "genre", "checked_in", "new_arrival"],
+
+      where: {
+        id: req.params.id,
+      },
+    
+    });
+
+    const book = bookData.get({ plain: true });
+    res.render("/library", {
+      ...book,
+      // logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+
+>>>>>>> 282fed43d6f5c248a8ff5c86208ad697dc8a0337
 router.get("/contact", (req, res) => {
   res.render("contact");
 });
