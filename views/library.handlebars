@@ -11,12 +11,11 @@
     <div>
       {{#if book.checked_in}}
       <div id="book-id"={{book.id}}></div>
-      <input   type="checkbox" id="checked_in" name="checked_in" value="true" />
+      <input type="checkbox" id="checked_in" name="checked_in" value="true" />
       <label for="checked_id">
         Check this box if you would like to reserve this book.
       </label>
       <br />
-
       <a href="/login"><button id="reserveBtn" class="btn btn-primary"> Check out!</button> </a>
       {{/if}}
     </div>
