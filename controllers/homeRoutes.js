@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
+router.get("/library", async (req, res) => {
   try {
     const bookData = await Book.findAll({});
 
@@ -104,51 +104,42 @@ router.post("/donate", async (req, res) => {
   }
 });
 
-
 router.get("/bookInfo", async (req, res) => {
   try {
-    const libraryData = await Book.findAll({
+    const bookData = await Book.findAll({
       attributes: ["title", "author", "genre", "checked_in", "new_arrival"],
+
       where: {
         title: req.query.title,
       },
-    
     });
-    
-    // Serialize user data so templates can read it
-    //const books = libraryData.map((book) => book.get({ plain: true }));
 
-  res.render("bookInfo", { books });
+    // Serialize user data so templates can read it
+    const books = bookData.get({ plain: true });
+    // const books = bookData.map((book) => book.get({plain : true}))
+
+    res.render("bookInfo", { books });
   } catch (err) {
-  res.status(500).json(err);
-}
+    res.status(500).json(err);
+  }
 });
 
-
 router.get("/contact", (req, res) => {
-  res.render('contact');
-
-}
-)
+  res.render("contact");
+});
 // router.get("/bookInfo", (req, res) => {
-  //   res.render('bookInfo');
-  //   }
-  // )
-  
-  
-  
-  // console.log(libraryData)
-  
-  // const book = await userData.map((project) => project.get({ plain: true }));
-  // const dummyData = {
-  //   title: "title",
-  //   author: "author",
-  //   genre: "genre",
-  //   checked_in: "checked-in",
-  //   new_arrival: 'new-arrival'
-  // }
-=======
-  }
-)
+//   res.render('bookInfo');
+//   }
+// )
+
+// console.log(libraryData)
+
+// const dummyData = {
+//   title: "title",
+//   author: "author",
+//   genre: "genre",
+//   checked_in: "checked-in",
+//   new_arrival: 'new-arrival'
+// }
 
 module.exports = router;
